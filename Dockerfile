@@ -55,7 +55,7 @@ RUN python setup.py build install
 
 
 # # iPyMol 
-RUN pip install ipymol  # # matplotlib and numpy already present in Conda
+RUN conda install ipymol  # # matplotlib and numpy already present in Conda
 
 
 
