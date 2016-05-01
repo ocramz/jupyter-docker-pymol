@@ -28,8 +28,15 @@ RUN apt-get update
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
+
+
+
 # # PyMol dependencies
-RUN apt-get install -y freeglut3 freeglut3-dev libpng3 libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev 
+RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev 
+
+
+# # # restore non-root jupyter user
+USER jovyan
 
 # # # fetch and install PyMol
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/1.8/pymol-v${PYMOL_VERSION}.tar.bz2
@@ -40,8 +47,10 @@ RUN python setup.py build install
 
 
 
-# # iPyMol deps
-RUN pip install numpy ipymol matplotlib
+# # iPyMol 
+RUN pip install ipymol  # # matplotlib and numpy already present in Conda
+
+RUN which pip && which python
 
 
 
@@ -52,7 +61,9 @@ RUN apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tm
 
 
 
-# # # restore non-root jupyter user
-USER jovyan
+
+
+
+ENTRYPOINT tini -- start-notebook.sh
 
 # docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
