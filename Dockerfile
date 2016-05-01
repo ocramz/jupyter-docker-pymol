@@ -2,6 +2,8 @@ FROM jupyter/scipy-notebook
 MAINTAINER Marco Zocca, zocca.marco gmail 
 
 
+USER root
+
 # # # environment variables
 ENV PYMOL_VERSION 1.8.2.0
 ENV PYMS_DIR /home/scripts/PyMol
