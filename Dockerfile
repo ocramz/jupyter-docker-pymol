@@ -1,4 +1,6 @@
 FROM jupyter/notebook
+# https://github.com/jupyter/notebook
+
 MAINTAINER Marco Zocca, zocca.marco gmail 
 
 
@@ -26,18 +28,21 @@ ADD ipymol/ ${IPYNBS_DIR}
 # # # update APT index
 RUN apt-get update 
 
-# # # bash
+# # # install some build tools
+RUN apt-get install -y sudo wget curl make python python-pip pkg-config
+
+# # # use bash rather than sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 
 
 # # PyMol, iPyMol dependencies
-RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev   libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
+RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev   libatlas-base-dev libgsl0-dev libblas-dev liblapack-dev gfortran libzmq1 libzmq-dev libc-dev    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
 
 
 
-# # # fetch and install PyMol
+# # # # PyMol
 WORKDIR /home/${USER}
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/1.8/pymol-v${PYMOL_VERSION}.tar.bz2
 RUN tar jxf pymol-v${PYMOL_VERSION}.tar.bz2
@@ -46,11 +51,9 @@ WORKDIR pymol
 RUN python setup.py build install
 
 
+# # # # iPyMol + dependencies
+RUN pip install jinja2 tornado numpy  scipy  ipymol matplotlib freetype-py
 
-# # iPyMol 
-RUN conda skeleton pypi ipymol
-RUN conda build ipymol
-# RUN pip install ipymol  # # matplotlib and numpy already present in Conda
 
 
 
