@@ -1,14 +1,17 @@
 FROM jupyter/scipy-notebook
 MAINTAINER Marco Zocca, zocca.marco gmail 
 
-
 USER root
+# ENV GRANT_SUDO yes
+# USER jovyan
 
 # # # environment variables
 ENV PYMOL_VERSION 1.8.2.0
-ENV PYMS_DIR /home/scripts/PyMol
-ENV DATASETS_DIR /home/datasets
-ENV IPYNBS_DIR /home/scripts/iPython
+ENV USER jovyan
+
+ENV PYMS_DIR /home/${USER}/scripts/PyMol
+ENV DATASETS_DIR /home/${USER}/datasets
+ENV IPYNBS_DIR /home/${USER}/scripts/iPython
 
 # # useful directories
 RUN mkdir -p ${PYMS_DIR}
@@ -21,12 +24,15 @@ ADD scripts/ ${PYMS_DIR}
 ADD datasets/ ${DATASETS_DIR}
 ADD ipymol/ ${IPYNBS_DIR}
 
+
+# # # # # # root for administration
+USER root
+
 # # # update APT index
 RUN apt-get update 
 
 # # # bash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
 
 
 
@@ -39,6 +45,7 @@ RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-
 USER jovyan
 
 # # # fetch and install PyMol
+WORKDIR /home/${USER}
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/1.8/pymol-v${PYMOL_VERSION}.tar.bz2
 RUN tar jxf pymol-v${PYMOL_VERSION}.tar.bz2
 RUN rm pymol-v*
@@ -50,13 +57,11 @@ RUN python setup.py build install
 # # iPyMol 
 RUN pip install ipymol  # # matplotlib and numpy already present in Conda
 
-RUN which pip && which python
-
 
 
 # # # clean temp data
 USER root
-RUN apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 USER jovyan
 
 
