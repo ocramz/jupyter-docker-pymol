@@ -40,6 +40,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # # PyMol dependencies
 RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev 
 
+RUN conda install -y conda-build
 
 # # # restore non-root jupyter user
 USER jovyan
@@ -55,7 +56,9 @@ RUN python setup.py build install
 
 
 # # iPyMol 
-RUN conda install ipymol  # # matplotlib and numpy already present in Conda
+RUN conda skeleton pypi ipymol
+RUN conda build ipymol
+# RUN pip install ipymol  # # matplotlib and numpy already present in Conda
 
 
 
@@ -65,6 +68,8 @@ RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /v
 USER jovyan
 
 
+
+RUN conda list
 
 
 
