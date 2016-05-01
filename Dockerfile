@@ -66,6 +66,11 @@ RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /v
 
 
 
-ENTRYPOINT tini -- start-notebook.sh
+
+EXPOSE 8888
+
+ENTRYPOINT ["tini", "--"]
+CMD ["jupyter", "notebook", "--no-browser"]
+
 
 # docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
