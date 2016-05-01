@@ -52,7 +52,7 @@ RUN python setup.py build install
 
 
 # # # # iPyMol + dependencies
-RUN pip install ipymol
+RUN pip3 install ipymol
 
 
 
@@ -61,6 +61,10 @@ RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /v
 
 
 
+
+RUN echo $PYTHONPATH
+
+RUN pip list
 
 
 
