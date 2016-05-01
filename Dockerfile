@@ -55,8 +55,9 @@ RUN which pip && which python
 
 
 # # # clean temp data
+USER root
 RUN apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+USER jovyan
 
 
 
