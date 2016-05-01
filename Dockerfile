@@ -21,20 +21,17 @@ ADD scripts/ ${PYMS_DIR}
 ADD datasets/ ${DATASETS_DIR}
 ADD ipymol/ ${IPYNBS_DIR}
 
-
-
+# # # update APT index
 RUN apt-get update 
 
 # # # bash
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
-
 # # PyMol dependencies
 RUN apt-get install -y freeglut3 freeglut3-dev libpng3 libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev 
 
-# # # fetch and install PyMOl
-
+# # # fetch and install PyMol
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/1.8/pymol-v${PYMOL_VERSION}.tar.bz2
 RUN tar jxf pymol-v${PYMOL_VERSION}.tar.bz2
 RUN rm pymol-v*
@@ -55,4 +52,7 @@ RUN apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tm
 
 
 
-# docker run -d -p 8888:8888 jupyter/scipy-notebook
+# # # restore non-root jupyter user
+USER jovyan
+
+# docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol

@@ -14,7 +14,7 @@ build:
 	docker build -t $(ACCOUNT)/jupyter-docker-pymol .
 
 nb:
-	docker run -p 8888:8888 -v `/bin/pwd`:/notebooks  -t ocramz/jupyter-docker-pymol
+	docker run -d -p 8888:8888 -t ocramz/jupyter-docker-pymol
 
 login:
 	docker login -u $(ACCOUNT)
