@@ -1,13 +1,10 @@
-FROM jupyter/scipy-notebook
+FROM jupyter/notebook
 MAINTAINER Marco Zocca, zocca.marco gmail 
 
-USER root
-# ENV GRANT_SUDO yes
-# USER jovyan
 
 # # # environment variables
 ENV PYMOL_VERSION 1.8.2.0
-ENV USER jovyan
+ENV USER nb
 
 ENV PYMS_DIR /home/${USER}/scripts/PyMol
 ENV DATASETS_DIR /home/${USER}/datasets
@@ -25,8 +22,6 @@ ADD datasets/ ${DATASETS_DIR}
 ADD ipymol/ ${IPYNBS_DIR}
 
 
-# # # # # # root for administration
-USER root
 
 # # # update APT index
 RUN apt-get update 
@@ -37,13 +32,10 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 
-# # PyMol dependencies
-RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev 
+# # PyMol, iPyMol dependencies
+RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev   libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
 
-RUN conda install -y conda-build
 
-# # # restore non-root jupyter user
-USER jovyan
 
 # # # fetch and install PyMol
 WORKDIR /home/${USER}
