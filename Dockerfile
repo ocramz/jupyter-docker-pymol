@@ -38,7 +38,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 # # PyMol, iPyMol dependencies
-RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev   libatlas-base-dev libgsl0-dev libblas-dev liblapack-dev gfortran libzmq1 libzmq-dev libc-dev    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
+RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev   python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
 
 
 
@@ -52,15 +52,12 @@ RUN python setup.py build install
 
 
 # # # # iPyMol + dependencies
-RUN pip install jinja2 tornado numpy  scipy  ipymol matplotlib freetype-py
-
+RUN pip install ipymol
 
 
 
 # # # clean temp data
-USER root
 RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-USER jovyan
 
 
 
