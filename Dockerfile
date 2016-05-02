@@ -29,7 +29,7 @@ ADD ipymol/ ${IPYNBS_DIR}
 RUN apt-get update 
 
 # # # install some build tools
-RUN apt-get install -y sudo wget curl make python3 python3-dev python-pip pkg-config
+RUN apt-get install -y sudo wget curl make python python-dev python-pip pkg-config
 
 # # # use bash rather than sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -38,7 +38,11 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 # # PyMol, iPyMol dependencies
-RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw python-dev glew-utils libglew-dev libxml2-dev   python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
+# # simplified
+RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw glew-utils libglew-dev libxml2-dev   python-numpy python-scipy python-matplotlib  python-pandas python-sympy python-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
+
+# # working so far
+# RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw glew-utils libglew-dev libxml2-dev   python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
 
 
 
@@ -48,14 +52,14 @@ RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/1.8/pym
 RUN tar jxf pymol-v${PYMOL_VERSION}.tar.bz2
 RUN rm pymol-v*
 WORKDIR pymol
-RUN python3 setup.py build install
+RUN python setup.py build install
 
 
 RUN which pymol
 
 
 # # # # iPyMol + dependencies
-RUN pip3 install ipymol
+RUN pip install ipymol
 
 
 
