@@ -35,7 +35,7 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 
     `pm.start()`
 
-* Run your PyMol tasks:
+* Run your PyMol tasks, e.g. :
 
     `pm.do('fetch 3odu; as cartoon; bg white')`
 
