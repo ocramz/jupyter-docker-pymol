@@ -56,7 +56,7 @@ RUN which pymol
 
 # # # # iPyMol + dependencies
 # RUN pip3 install ipymol
-RUN pip3 install git+https://github.com/ocramz/ipymol.git
+RUN pip3 install git+https://github.com/ocramz/ipymol.git@python3
 
 
 # # # clean temp data
