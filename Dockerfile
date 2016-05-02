@@ -59,6 +59,7 @@ RUN which pymol
 RUN pip3 install git+https://github.com/ocramz/ipymol.git@python3
 
 
+
 # # # clean temp data
 RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
