@@ -10,7 +10,7 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 ## Instructions
 
 
-Note down the IP address of the currently running Docker machine (called `dev` in this example) with 
+Note down the IP address of the currently running Docker machine (which is called `dev` in this example) with 
 
     docker-machine ip dev
 
