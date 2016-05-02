@@ -65,4 +65,8 @@ There is *NO* authentication to the notebooks and the Jupyter user is `root`.
 
 ## Credits
 
+the PyMol project contributors , pymol.org
+
+the Jupyter and iPython project contributors , jupyter.org
+
 Carlos Hernandez (ipymol) , https://github.com/cxhernandez/ipymol
