@@ -1,7 +1,11 @@
 from ipymol import viewer as v
 import xmlrpc.client as xc
+import time
 
 v._thread.start();
+
+sleep(0.5);
+
 v._server = xc.ServerProxy( uri="http://localhost:9123/RPC2");
 
 
