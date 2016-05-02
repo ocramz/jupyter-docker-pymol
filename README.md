@@ -10,14 +10,16 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 ## Instructions
 
 
-Note down the IP address of the currently running Docker machine (which is called `dev` in this example) with 
+First, note down the IP address of the currently running Docker machine (which is called `dev` in this example) with 
 
     docker-machine ip dev
 
 
-1. Retrieve image from Docker hub :
+1. Retrieve the image from Docker hub :
 
         docker pull ocramz/jupyter-docker-pymol
+
+You can retrieve the list of currently available Docker images with the command `docker images`
 
 
 2. Run image :
