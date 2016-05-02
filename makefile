@@ -8,6 +8,7 @@ help:
 	@echo "  build    to build the docker image"
 	@echo "  login    to login to your docker account"
 	@echo "  push     to push the image to the docker registry"
+	@echo "  ready    to pull and run the image"
 
 pull:
 	docker pull ${ACCOUNT}/jupyter-docker-pymol

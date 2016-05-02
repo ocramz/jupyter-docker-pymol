@@ -26,7 +26,7 @@ First, note down the IP address of the currently running Docker machine (which i
   
         docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
 
-3. Point your browser to the IP address of the Docker machine found at point 2, and port 8888, i.e.
+3. Point your browser to the IP address of the Docker machine found initially, and port 8888, i.e.
 
         <docker-machine-ip>:8888
 
