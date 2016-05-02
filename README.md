@@ -42,9 +42,9 @@ Note down the IP address of the currently running Docker machine (which is calle
 
     (necessary for plotting within Jupyter notebooks)
 
-    pm.do('fetch 3odu; as cartoon; bg white')
+        pm.do('fetch 3odu; as cartoon; bg white')
 
-    f1 = pm.show()
+        f1 = pm.show()
 
 
 
