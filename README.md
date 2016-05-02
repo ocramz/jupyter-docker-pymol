@@ -32,11 +32,13 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 * Set up a connection to PyMol:
 
     `from ipymol import viewer as pm`
+
     `pm.start()`
 
 * Run your PyMol tasks:
 
     `pm.do('fetch 3odu; as cartoon; bg white')`
+
     `pm.show()`
 
 
