@@ -79,8 +79,8 @@ RUN pydoc modules
 
 
 EXPOSE 8888
-EXPOSE 80
-EXPOSE 9123
+
+VOLUME /home/${USER}
 
 ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser"]
