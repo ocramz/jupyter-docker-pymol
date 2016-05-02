@@ -48,7 +48,8 @@ RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/1.8/pym
 RUN tar jxf pymol-v${PYMOL_VERSION}.tar.bz2
 RUN rm pymol-v*
 WORKDIR pymol
-RUN python3 setup.py build install
+# RUN python3 setup.py build install
+RUN bash installpymol.sh
 
 RUN which pymol
 
