@@ -17,10 +17,10 @@ RUN mkdir -p ${PYMS_DIR}
 RUN mkdir -p ${DATASETS_DIR}
 RUN mkdir -p ${IPYNBS_DIR}
 
-# # scripts and datasets (FIXME: better use VOLUME instead, see Dockerfile docs)
+# # scripts and datasets
 
 ADD scripts/ ${PYMS_DIR}
-ADD datasets/ ${DATASETS_DIR}
+# ADD datasets/ ${DATASETS_DIR}
 ADD ipymol/ ${IPYNBS_DIR}
 
 
@@ -80,10 +80,13 @@ RUN pydoc modules
 
 EXPOSE 8888
 
+
+# # working directory
 WORKDIR /home/${USER}
+
 VOLUME /home/${USER}
 
-ADD test/ /home/${USER}
+# ADD test/ /home/${USER}
 
 ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser"]
