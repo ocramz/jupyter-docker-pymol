@@ -32,9 +32,9 @@ Note down the IP address of the currently running Docker machine (which is calle
 
 5. Set up a connection to PyMol:
 
-    `from ipymol import viewer as pm`
+        from ipymol import viewer as pm
 
-    `pm.start()`
+        pm.start()
 
 6. Run your PyMol tasks, e.g. :
 
