@@ -12,22 +12,32 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 
 * Retrieve image from Docker hub :
 
-    docker pull ocramz/jupyter-docker-pymol
+    `docker pull ocramz/jupyter-docker-pymol`
+
+* Find IP of currently running Docker machine (called `dev` in this example):
+
+    `docker-machine ip dev`
+
 
 * Run image :
   
-    docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
+    `docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol`
 
 * Point your browser to the IP of the Docker machine at port 8888, e.g.
 
-    192.168.0.3:8888
+    `<docker-machine-ip>:8888`
 
 * Within Jupyter, start a Python 3 document
 
 * Set up a connection to PyMol:
 
-    from ipymol import viewer as pm
-    pm.start()
+    `from ipymol import viewer as pm`
+    `pm.start()`
+
+* Run your PyMol tasks:
+
+    `pm.do('fetch 3odu; as cartoon; bg white')`
+    `pm.show()`
 
 
 
@@ -39,7 +49,7 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 
 * Docker
 
-* `docker-machine` running in the current shell; calling `docker-machine`
+* `docker-machine` running in the current shell
 
 
 
