@@ -78,8 +78,8 @@ EXPOSE 8888
 EXPOSE 80
 EXPOSE 9123
 
-# ENTRYPOINT ["tini", "--"]
-# CMD ["jupyter", "notebook", "--no-browser"]
+ENTRYPOINT ["tini", "--"]
+CMD ["jupyter", "notebook", "--no-browser"]
 
 
 # docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
