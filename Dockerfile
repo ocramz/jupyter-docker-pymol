@@ -41,7 +41,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw glew-utils libglew-dev libxml2-dev   python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
 
 # # ", lighter
-RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw glew-utils libglew-dev libxml2-dev   python-scipy python-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
+RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw glew-utils libglew-dev libxml2-dev   python3-scipy python3-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
 
 
 
