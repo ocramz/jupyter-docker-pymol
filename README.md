@@ -4,7 +4,7 @@ Travis CI: [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.sv
 
 Container-based installation of `pymol`, with interaction through the browser via Jupyter notebook (based on `jupyter/scipy-notebook`).
 
-The installation contains also `numpy`, `scipy` and `matplotlib` among other things, so it can be alse used for a variety of scientific Python work.
+The installation contains also `numpy`, `scipy` and `matplotlib` among other things, so it can be also used for a variety of scientific Python work.
 
 
 ## Instructions
