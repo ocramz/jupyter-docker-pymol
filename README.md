@@ -51,7 +51,7 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 
 * Docker (Windows and OSX users should install the Docker Toolbox : https://docs.docker.com/toolbox/overview/)
 
-* `docker-machine` running in the current shell
+* `docker-machine` running in the current shell (setup guide : https://docs.docker.com/machine/get-started/)
 
 
 
