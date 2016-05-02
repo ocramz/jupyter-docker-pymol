@@ -38,9 +38,6 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 # # # PyMol, iPyMol dependencies
-# RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw glew-utils libglew-dev libxml2-dev   python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
-
-# # ", lighter
 RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-dev libpng-dev libfreetype6 libfreetype6-dev pmw glew-utils libglew-dev libxml2-dev   python3-scipy python3-nose    libtiff4-dev libjpeg8-dev zlib1g-dev liblcms2-dev libwebp-dev tcl8.5-dev tk8.5-dev python-tk
 
 
@@ -53,12 +50,10 @@ RUN rm pymol-v*
 WORKDIR pymol
 RUN python3 setup.py build install
 
-
-RUN which pymol
+# RUN which pymol
 
 
 # # # # iPyMol + dependencies
-# RUN pip3 install ipymol
 RUN pip3 install git+https://github.com/ocramz/ipymol.git@python3
 
 
@@ -69,9 +64,8 @@ RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /v
 
 
 ## check installation
-# RUN pymol -cKRQ  # server mode
 RUN pip list
-RUN pydoc modules
+# RUN pydoc modules
 
 
 
@@ -86,10 +80,9 @@ WORKDIR /home/${USER}
 
 VOLUME /home/${USER}
 
-# ADD test/ /home/${USER}
 
 ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser"]
 
 
-# docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
+# docker run --rm -it -p 8888:8888 ocramz/jupyter-docker-pymol
