@@ -30,6 +30,8 @@ You can retrieve the list of currently available Docker images with the command 
 
         <docker-machine-ip>:8888
 
+where `<docker-machine-ip>` usually starts with `192.168.` 
+
 4. Within Jupyter, start a Python 3 document
 
 5. Set up a connection to PyMol:
