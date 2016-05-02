@@ -17,3 +17,8 @@ Run image :
 
 
 
+
+
+## Credits
+
+Carlos Hernandez (ipymol) , https://github.com/cxhernandez/ipymol
