@@ -4,7 +4,7 @@ import time
 
 v._thread.start();
 
-sleep(0.5);
+time.sleep(0.5);
 
 v._server = xc.ServerProxy( uri="http://localhost:9123/RPC2");
 
