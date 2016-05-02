@@ -33,7 +33,6 @@ Note down the IP address of the currently running Docker machine (which is calle
 5. Set up a connection to PyMol:
 
         from ipymol import viewer as pm
-
         pm.start()
 
 6. Run your PyMol tasks, e.g. :
@@ -43,7 +42,6 @@ Note down the IP address of the currently running Docker machine (which is calle
     (necessary for plotting within Jupyter notebooks)
 
         pm.do('fetch 3odu; as cartoon; bg white')
-
         f1 = pm.show()
 
 
