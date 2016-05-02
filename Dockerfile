@@ -29,7 +29,7 @@ ADD ipymol/ ${IPYNBS_DIR}
 RUN apt-get update 
 
 # # # install some build tools
-RUN apt-get install -y sudo wget curl make python python-pip pkg-config
+RUN apt-get install -y sudo wget curl make python3 python3-dev python-pip pkg-config
 
 # # # use bash rather than sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -49,6 +49,8 @@ RUN tar jxf pymol-v${PYMOL_VERSION}.tar.bz2
 RUN rm pymol-v*
 WORKDIR pymol
 RUN python3 setup.py build install
+
+RUN which pymol
 
 
 # # # # iPyMol + dependencies
