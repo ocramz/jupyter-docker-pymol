@@ -80,6 +80,7 @@ RUN pydoc modules
 
 EXPOSE 8888
 
+WORKDIR /home/${USER}
 VOLUME /home/${USER}
 
 ENTRYPOINT ["tini", "--"]
