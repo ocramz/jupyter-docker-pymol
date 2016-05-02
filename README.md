@@ -19,7 +19,7 @@ First, note down the IP address of the currently running Docker machine (which i
 
         docker pull ocramz/jupyter-docker-pymol
 
-You can retrieve the list of currently available Docker images with the command `docker images`
+   You can retrieve the list of currently available Docker images with the command `docker images`
 
 
 2. Run image :
@@ -30,7 +30,7 @@ You can retrieve the list of currently available Docker images with the command 
 
         <docker-machine-ip>:8888
 
-where `<docker-machine-ip>` usually starts with `192.168.` 
+   where `<docker-machine-ip>` usually starts with `192.168.` 
 
 4. Within Jupyter, start a Python 3 document
 
