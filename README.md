@@ -49,7 +49,7 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 
 ## Requirements
 
-* Docker
+* Docker (Windows and OSX users should install the Docker Toolbox : https://docs.docker.com/toolbox/overview/)
 
 * `docker-machine` running in the current shell
 

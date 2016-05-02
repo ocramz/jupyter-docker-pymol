@@ -14,3 +14,7 @@ before_install:
 script:
   # # build Docker image
   - make build ACCOUNT=$ACCOUNT
+
+# after_success:
+#   - 
+
