@@ -83,6 +83,8 @@ EXPOSE 8888
 WORKDIR /home/${USER}
 VOLUME /home/${USER}
 
+ADD test/ /home/${USER}
+
 ENTRYPOINT ["tini", "--"]
 CMD ["jupyter", "notebook", "--no-browser"]
 
