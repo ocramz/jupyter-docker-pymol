@@ -63,6 +63,11 @@ First, note down the IP address of the currently running Docker machine (which i
 
 
 
+## Notes
+
+This project uses PyMol 1.8.2.0 and Python 3
+
+
 ## Caveat
 
 At present, this setup is intended for local use only (i.e. the Docker image, along with all the computational payload i.e. PyMol and the Python interpreter, is running on the same host that runs the browser). 
