@@ -37,14 +37,14 @@ First, note down the IP address of the currently running Docker machine (which i
 
 5. Set up a connection to PyMol:
 
+        %pylab inline 
+
+    (necessary for plotting within Jupyter notebooks)
+
         from ipymol import viewer as pm
         pm.start()
 
 6. Run your PyMol tasks, e.g. :
-
-        %pylab inline 
-
-    (necessary for plotting within Jupyter notebooks)
 
         pm.do('fetch 3odu; as cartoon; bg white')
         f1 = pm.show()
