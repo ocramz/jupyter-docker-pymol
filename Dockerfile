@@ -14,7 +14,7 @@ ENV IPYNBS_DIR /home/${USER}/scripts/iPython
 ENV DL_DIR /home/dl
 
 # # useful directories
-RUN mkdir -p ${PYMS_DIR}
+# RUN mkdir -p ${PYMS_DIR}
 RUN mkdir -p ${DATASETS_DIR}
 RUN mkdir -p ${IPYNBS_DIR}
 RUN mkdir -p ${DL_DIR}
