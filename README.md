@@ -25,6 +25,7 @@ First, note down the IP address of the currently running Docker machine (which i
    You can retrieve the list of currently available Docker images with the command `docker images`
 
 
+
 2. Run image :
   
         docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
@@ -35,7 +36,9 @@ First, note down the IP address of the currently running Docker machine (which i
 
    where `<docker-machine-ip>` usually starts with `192.168.` 
 
+
 4. Within Jupyter, start a Python 3 document
+
 
 5. Set up a connection to PyMol:
 
@@ -45,6 +48,7 @@ First, note down the IP address of the currently running Docker machine (which i
 
         from ipymol import viewer as pm
         pm.start()
+
 
 6. Run your PyMol tasks, e.g. :
 
