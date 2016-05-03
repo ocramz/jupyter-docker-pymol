@@ -10,7 +10,7 @@ The installation contains also `numpy`, `scipy` and `matplotlib` among other thi
 
 
 
-## Instructions
+## Instructions (setup)
 
 
 First, note down the IP address of the currently running Docker machine (which is called `dev` in this example) with 
@@ -37,20 +37,21 @@ First, note down the IP address of the currently running Docker machine (which i
    where `<docker-machine-ip>` usually starts with `192.168.` 
 
 
-4. Within Jupyter, start a Python 3 document
+## Instructions (use)
 
 
-5. Set up a connection to PyMol:
+1. Within Jupyter, start a Python 3 document (or just start with the [example notebook](https://github.com/ocramz/jupyter-docker-pymol/blob/master/ipymol/iPyMol_example.ipynb))
+
+
+2. Declare inline figure rendering within Jupyter notebooks and setup the connection to PyMol:
 
         %pylab inline 
-
-    (necessary for plotting within Jupyter notebooks)
 
         from ipymol import viewer as pm
         pm.start()
 
 
-6. Run your PyMol tasks, e.g. :
+3. Run your PyMol tasks, e.g. :
 
         pm.do('fetch 3odu; as cartoon; bg white;')
         f1 = pm.show()
