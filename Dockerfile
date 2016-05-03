@@ -62,7 +62,6 @@ RUN sudo apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /v
 
 ## check installation
 RUN pip list
-# RUN pydoc modules
 
 
 
