@@ -6,7 +6,7 @@ Container-based installation of `pymol`, with interaction through the browser vi
 
 The installation contains also `numpy`, `scipy` and `matplotlib` among other things, so it can be also used for a variety of scientific Python work.
 
-![](fig/png0.png?raw=true)
+![](https://github.com/ocramz/jupyter-docker-pymol/blob/master/fig/png0.png)
 
 
 
