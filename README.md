@@ -2,9 +2,11 @@
 
 Travis CI: [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=master)](https://travis-ci.org/ocramz/jupyter-docker-pymol)
 
-Container-based installation of `pymol`, with interaction through the browser via `iPyMol` and Jupyter notebook (based on `jupyter/notebook`).
+Container-based installation of `PyMol`, with interaction through the browser via `ipymol` and Jupyter notebook (based on `jupyter/notebook`). A convenient and portable way to draw pretty pictures of chemical molecules, and much more.
 
-The installation also contains `numpy`, `scipy` and `matplotlib` among other things, so it can be used for a variety of scientific Python tasks.
+The installation also contains `numpy` ans `scipy` among other things, so it can be used for a variety of scientific Python tasks.
+
+
 
 ![](https://github.com/ocramz/jupyter-docker-pymol/blob/master/fig/png0.png)
 
