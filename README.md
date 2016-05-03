@@ -48,7 +48,7 @@ First, note down the IP address of the currently running Docker machine (which i
 
 6. Run your PyMol tasks, e.g. :
 
-        pm.do('fetch 3odu; as cartoon; bg white')
+        pm.do('fetch 3odu; as cartoon; bg white;')
         f1 = pm.show()
 
 
