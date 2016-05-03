@@ -30,7 +30,7 @@ First, note down the IP address of the currently running Docker machine (which i
 
 2. Run image :
   
-        docker run -d -p 8888:8888 ocramz/jupyter-docker-pymol
+        docker run --rm -it -p 8888:8888 ocramz/jupyter-docker-pymol
 
 3. Point your browser to the IP address of the Docker machine found initially, and port 8888, i.e.
 
