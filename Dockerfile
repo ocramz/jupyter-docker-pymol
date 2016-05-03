@@ -11,11 +11,13 @@ ENV USER nb
 ENV PYMS_DIR /home/${USER}/scripts/PyMol
 ENV DATASETS_DIR /home/${USER}/datasets
 ENV IPYNBS_DIR /home/${USER}/scripts/iPython
+ENV DL_DIR /home/dl
 
 # # useful directories
 RUN mkdir -p ${PYMS_DIR}
 RUN mkdir -p ${DATASETS_DIR}
 RUN mkdir -p ${IPYNBS_DIR}
+RUN mkdir -p ${DL_DIR}
 
 # # scripts and datasets
 
@@ -43,7 +45,7 @@ RUN apt-get install -y build-essential freeglut3 freeglut3-dev libpng3 libpng12-
 
 
 # # # # PyMol
-WORKDIR /home/${USER}
+WORKDIR ${DL_DIR}
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/1.8/pymol-v${PYMOL_VERSION}.tar.bz2
 RUN tar jxf pymol-v${PYMOL_VERSION}.tar.bz2
 RUN rm pymol-v*

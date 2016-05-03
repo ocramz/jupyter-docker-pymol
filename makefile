@@ -7,6 +7,7 @@ help:
 	@echo "  help     to display this help message"
 	@echo "  build    to build the docker image"
 	@echo "  login    to login to your docker account"
+	@echo "  pull     to retrieve the image from the docker registry" 
 	@echo "  push     to push the image to the docker registry"
 	@echo "  ready    to pull and run the image"
 
