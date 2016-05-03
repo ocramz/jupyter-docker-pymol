@@ -8,21 +8,16 @@ MAINTAINER Marco Zocca, zocca.marco gmail
 ENV PYMOL_VERSION 1.8.2.0
 ENV USER nb
 
-ENV PYMS_DIR /home/${USER}/scripts/PyMol
-ENV DATASETS_DIR /home/${USER}/datasets
-ENV IPYNBS_DIR /home/${USER}/scripts/iPython
+
+ENV IPYNBS_DIR /home/${USER}/scripts/iPyMol
 ENV DL_DIR /home/dl
 
 # # useful directories
-# RUN mkdir -p ${PYMS_DIR}
-RUN mkdir -p ${DATASETS_DIR}
 RUN mkdir -p ${IPYNBS_DIR}
 RUN mkdir -p ${DL_DIR}
 
 # # scripts and datasets
 
-ADD scripts/ ${PYMS_DIR}
-# ADD datasets/ ${DATASETS_DIR}
 ADD ipymol/ ${IPYNBS_DIR}
 
 
