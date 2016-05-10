@@ -4,7 +4,7 @@ Travis CI: [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.sv
 
 Container-based installation of `PyMol`, with interaction through the browser via `ipymol` and Jupyter notebook (based on `jupyter/notebook`). A convenient and portable way to render pretty pictures of molecules, and much more.
 
-The installation also contains `numpy` ans `scipy` among other things, so it can be used for a variety of scientific Python tasks.
+The installation also contains `numpy` and `scipy` among other things, so it can be used for a variety of scientific Python tasks.
 
 
 
@@ -20,17 +20,18 @@ First, note down the IP address of the currently running Docker machine (which i
     docker-machine ip dev
 
 
-1. Retrieve the image from Docker hub :
+1. Download the image from Docker hub :
 
         docker pull ocramz/jupyter-docker-pymol
 
-   You can retrieve the list of currently available Docker images with the command `docker images`
+   You can see the list of locally available Docker images with the command `docker images`
 
 
 
-2. Run image :
+2. Run the image :
   
         docker run --rm -it -p 8888:8888 ocramz/jupyter-docker-pymol
+
 
 3. Point your browser to the IP address of the Docker machine found initially, and port 8888, i.e.
 
@@ -38,11 +39,12 @@ First, note down the IP address of the currently running Docker machine (which i
 
    where `<docker-machine-ip>` usually starts with `192.168.` 
 
+A Jupyter session should appear in the browser at this point. Up and running !
 
 ## Instructions (use)
 
 
-1. Within Jupyter, start a Python 3 document (or just start with the [example notebook](https://github.com/ocramz/jupyter-docker-pymol/blob/master/ipymol/iPyMol_example.ipynb))
+1. Within Jupyter, start a Python 3 document (or just start by modifying the provided [example notebook](https://github.com/ocramz/jupyter-docker-pymol/blob/master/ipymol/iPyMol_example.ipynb))
 
 
 2. Declare inline figure rendering within Jupyter notebooks and setup the connection to PyMol:
