@@ -37,7 +37,8 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
-RUN chown ${USER} /opt/conda
+RUN mkdir -p /opt/conda && \
+    chown ${USER} /opt/conda
 
 # # Create user with UID=1000 and in the 'users' group
 # RUN useradd -m -s /bin/bash -N -u $NB_UID ${USER} && \
