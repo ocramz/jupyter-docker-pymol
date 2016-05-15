@@ -76,7 +76,7 @@ RUN apt-get install -y --no-install-recommends \
     texlive-fonts-extra \
     texlive-fonts-recommended \
     texlive-generic-recommended \
-    pkg-config locales libxrender1 \
+    pkg-config locales libxrender1
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -108,7 +108,7 @@ RUN mkdir /home/$NB_USER/work && \
     mkdir /home/$NB_USER/.local && \
     echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/$NB_USER/.curlrc
 
-# Install conda as jovyan
+# Install conda as `biodocker`
 RUN cd /tmp && \
     mkdir -p $CONDA_DIR && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-3.19.0-Linux-x86_64.sh && \
