@@ -75,7 +75,12 @@ RUN mkdir -p ${CONDA_DIR}                && \
 ADD ipymol/ ${IPYNBS_DIR}
 
 
+<<<<<<< HEAD
 # # # update APT index and install some build tools
+=======
+
+# # # update APT index and install some build tools (PyMol, iPyMol dependencies listed after a line break)
+>>>>>>> 0c967fca18706644ba78cb956c508275a868ae3f
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     pkg-config \
@@ -110,10 +115,18 @@ RUN apt-get update && \
     texlive-fonts-extra \
     texlive-fonts-recommended \
     texlive-generic-recommended \
+<<<<<<< HEAD
     unzip \
     vim \
 # # # PyMol, iPyMol dependencies
     \
+=======
+    pkg-config \
+    locales \
+    libxrender1 \
+    \  
+    build-essential \
+>>>>>>> 0c967fca18706644ba78cb956c508275a868ae3f
     freeglut3 \
     freeglut3-dev \
     glew-utils \
