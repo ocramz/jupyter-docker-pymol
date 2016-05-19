@@ -71,7 +71,14 @@ ADD ipymol/ ${IPYNBS_DIR}
 # # # update APT index and install some build tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    sudo \
+    pkg-config \
+    locales \
+    \
+    echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
+    locale-gen && \
+    dpkg-reconfigure locales && \
+    \
+    apt-get install -y --no-install-recommends sudo \
     make \
     build-essential\
     git \
@@ -94,8 +101,6 @@ RUN apt-get update && \
     texlive-fonts-extra \
     texlive-fonts-recommended \
     texlive-generic-recommended \
-    pkg-config \
-    locales \
     libxrender1 \
 # # # PyMol, iPyMol dependencies
     \
@@ -128,10 +133,6 @@ RUN apt-get update && \
 
 # # # use bash rather than sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
-RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen && \
-    dpkg-reconfigure locales
 
 
 
