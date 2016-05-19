@@ -71,10 +71,13 @@ ADD ipymol/ ${IPYNBS_DIR}
 # # # update APT index and install some build tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    pkg-config locales &&\
+    pkg-config \
+    language-pack-en-base \
+    locales &&\
     \
-    echo "en_US.UTF-8 UTF-8\nLC_ALL=\"en_US.UTF-8\"" > /etc/locale.gen && \
+    echo -e "en_US.UTF-8 UTF-8\nLC_ALL=\"en_US.UTF-8\"" > /etc/locale.gen && \
     locale-gen && \
+    update-locale && \
     dpkg-reconfigure locales && \
     \
     apt-get install -y --no-install-recommends sudo \
