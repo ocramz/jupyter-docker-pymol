@@ -67,7 +67,7 @@ ADD ipymol/ ${IPYNBS_DIR}
 
 
 
-# # # update APT index and install some build tools
+# # # update APT index and install some build tools (PyMol, iPyMol dependencies listed after a line break)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     sudo make build-essential\
@@ -87,7 +87,7 @@ RUN apt-get update && \
     pkg-config \
     locales \
     libxrender1 \
-    \  # # # PyMol, iPyMol dependencies
+    \  
     build-essential \
     freeglut3 \
     freeglut3-dev \
