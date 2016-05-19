@@ -97,7 +97,8 @@ RUN apt-get update && \
     pkg-config \
     locales \
     libxrender1 \
-    \ # # # PyMol, iPyMol dependencies
+# # # PyMol, iPyMol dependencies
+    \
     build-essential \
     freeglut3 \
     freeglut3-dev \
