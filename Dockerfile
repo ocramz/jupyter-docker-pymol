@@ -43,6 +43,7 @@ ENV CONDA_DIR /opt/conda
 ENV PATH ${CONDA_DIR}/bin:${PATH}
 ENV SHELL /bin/bash
 ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
@@ -70,10 +71,19 @@ ADD ipymol/ ${IPYNBS_DIR}
 # # # update APT index and install some build tools
 RUN apt-get update &&
     apt-get install -y --no-install-recommends \
-    sudo make build-essential\
-    git vim jed emacs \
-    python3 python3-dev python3-setuptools python3-zmq \
-    python-pip python-dev \
+    sudo \
+    make \
+    build-essential\
+    git \
+    vim \
+    jed \
+    emacs \
+    python3 \
+    python3-dev \
+    python3-setuptools \
+    python3-zmq \
+    python-pip \
+    python-dev \
     ca-certificates \
     bzip2 \
     unzip \
@@ -119,7 +129,8 @@ RUN apt-get update &&
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen
+    locale-gen && \
+    dpkg-reconfigure locales
 
 
 
