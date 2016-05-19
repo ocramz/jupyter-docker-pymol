@@ -24,6 +24,7 @@ MAINTAINER Marco Zocca, zocca.marco gmail
 # # # environment variables
 ENV PYMOL_VERSION_G 1.8
 ENV PYMOL_VERSION 1.8.2.0
+ENV PYMOL_SHA 6181024fe3f0107f57fcd02914b96747881272ade4fd0f3419784c972debce66
 
 ENV TINI_VER v0.9.0
 ENV TINI_SHA faafbfb5b079303691a939a747d7f60591f2143164093727e870b289a44d9872
@@ -181,6 +182,7 @@ RUN pip install --upgrade pip && pip install "jupyterhub==${JUPYTERHUB_VER}"
 
 # # # # PyMol
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL_VERSION_G}/pymol-v${PYMOL_VERSION}.tar.bz2 && \
+    echo "${PYMOL_SHA} pymol-v${PYMOL_VERSION}.tar.bz2" | sha256sum -c - && \
     tar jxf pymol-v${PYMOL_VERSION}.tar.bz2 && \
     rm pymol-v* && \
     cd pymol && \
@@ -190,8 +192,7 @@ RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL
 
 
 # # # # iPyMol + dependencies
-# TODO: FIXATE VERSION
-RUN pip3 install --upgrade pip3 && pip3 install git+https://github.com/ocramz/ipymol.git@python3
+RUN pip3 install git+https://github.com/ocramz/ipymol.git@python3
 
 
 ## check installation
@@ -230,7 +231,7 @@ USER ${USER}
 EXPOSE 8888
 
 # # working directory
-WORKDIR /home/${USER}
+WORKDIR /home/${USER}/data
 
 VOLUME /home/${USER}/data
 
