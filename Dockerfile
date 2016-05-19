@@ -86,52 +86,52 @@ RUN apt-get update && \
     dpkg-reconfigure locales && \
     \
     apt-get install -y --no-install-recommends sudo \
-    make \
     build-essential\
-    git \
-    vim \
-    jed \
+    bzip2 \
+    ca-certificates \
     emacs \
+    git \
+    jed \
+    libsm6 \
+    libxrender1 \
+    make \
+    pandoc \
+    python-pip \
+    python-dev \
     python3 \
     python3-dev \
     python3-setuptools \
     python3-zmq \
-    python-pip \
-    python-dev \
-    ca-certificates \
-    bzip2 \
-    unzip \
-    libsm6 \
-    pandoc \
+    python3-pip \
     texlive-latex-base \
     texlive-latex-extra \
     texlive-fonts-extra \
     texlive-fonts-recommended \
     texlive-generic-recommended \
-    libxrender1 \
+    unzip \
+    vim \
 # # # PyMol, iPyMol dependencies
     \
-    build-essential \
     freeglut3 \
     freeglut3-dev \
-    libpng3 libpng12-dev \
-    libpng-dev \
+    glew-utils \
+    liblcms2-dev \
     libfreetype6 \
     libfreetype6-dev \
-    pmw \
-    glew-utils \
     libglew-dev \
+    libjpeg8-dev \
+    libpng3 libpng12-dev \
+    libpng-dev \
+    libtiff4-dev \
+    libwebp-dev \
     libxml2-dev \
+    pmw \
+    python-tk \
     python3-scipy \
     python3-nose \
-    libtiff4-dev \
-    libjpeg8-dev \
-    zlib1g-dev \
-    liblcms2-dev \
-    libwebp-dev \
     tcl8.5-dev \
     tk8.5-dev \
-    python-tk    && \
+    zlib1g-dev && \
     \
     apt-get clean && \
     apt-get purge && \
@@ -140,7 +140,6 @@ RUN apt-get update && \
 
 # # # use bash rather than sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
 
 
 WORKDIR ${DL_DIR}
@@ -176,37 +175,27 @@ RUN conda install --quiet --yes \
 
 
 # Install JupyterHub to get the jupyterhub-singleuser startup script
-RUN pip install "jupyterhub==${JUPYTERHUB_VER}"
+RUN pip install --upgrade pip && pip install "jupyterhub==${JUPYTERHUB_VER}"
 
 
 
 # # # # PyMol
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL_VERSION_G}/pymol-v${PYMOL_VERSION}.tar.bz2 && \
     tar jxf pymol-v${PYMOL_VERSION}.tar.bz2 && \
-    pwd && \
-    ls && \
     rm pymol-v* && \
-    pwd && \
-    ls
-
-WORKDIR pymol
-
-RUN python3 setup.py build install
+    cd pymol && \
+    python3 setup.py build install
 
 # RUN which pymol
 
 
 # # # # iPyMol + dependencies
 # TODO: FIXATE VERSION
-RUN pip3 install git+https://github.com/ocramz/ipymol.git@python3
+RUN pip install --upgrade pip3 && pip3 install git+https://github.com/ocramz/ipymol.git@python3
 
 
 ## check installation
-RUN pip list
-
-
-
-
+RUN pip list && pip3 list
 
 
 
@@ -243,11 +232,12 @@ EXPOSE 8888
 # # working directory
 WORKDIR /home/${USER}
 
-VOLUME /home/${USER}
+VOLUME /home/${USER}/data
 
 
 ENTRYPOINT ["tini", "--"]
+
 CMD ["jupyter", "notebook", "--no-browser"]
 
 
-# docker run --rm -it -p 8888:8888 ocramz/jupyter-docker-pymol
+# docker run --rm -it -p 8888:8888 -v $PWD:/home/biodocker/data ocramz/jupyter-docker-pymol
