@@ -37,7 +37,8 @@ ENV JUPYTERHUB_VER 0.5
 ENV USER biodocker
 
 ENV IPYNBS_DIR /home/${USER}/notebooks/iPyMol
-ENV DL_DIR /home/dl
+ENV DL_DIR /home/${USER}/tmp
+ENV TMP_DIR /tmp
 
 ENV CONDA_DIR /opt/conda
 ENV PATH ${CONDA_DIR}/bin:${PATH}
@@ -47,25 +48,29 @@ ENV LC_CTYPE en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
+
+
 USER root
 
-RUN mkdir -p ${CONDA_DIR} && \
-    chown ${USER} ${CONDA_DIR}
+# Setup `biodocker` home directory
+RUN mkdir -p ${CONDA_DIR}                && \
+    chown ${USER} ${CONDA_DIR}           && \
+    mkdir -p ${DL_DIR}                   && \
+    chown ${USER} ${DL_DIR}              && \
+    mkdir -p ${IPYNBS_DIR}               && \
+    chown ${USER} ${IPYNBS_DIR}          && \
+    mkdir /home/${USER}/work             && \
+    chown ${USER} /home/${USER}/work     && \
+    mkdir /home/${USER}/.jupyter         && \
+    chown ${USER} /home/${USER}/.jupyter && \
+    mkdir /home/${USER}/.local           && \
+    chown ${USER} /home/${USER}/.local   && \
+    echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/${USER}/.curlrc && \
+    chown ${USER} /home/${USER}/.curlrc
 
-# # Create user with UID=1000 and in the 'users' group
-# RUN useradd -m -s /bin/bash -N -u $NB_UID ${USER} && \
-#     mkdir -p /opt/conda && \
-#     chown ${USER} /opt/conda
-
-
-
-# # useful directories
-RUN mkdir -p ${IPYNBS_DIR} && \
-    mkdir -p ${DL_DIR}
 
 # # add example notebook
 ADD ipymol/ ${IPYNBS_DIR}
-
 
 
 # # # update APT index and install some build tools
@@ -138,6 +143,8 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 
 
+WORKDIR ${DL_DIR}
+
 # # # Install Tini (Jupyter dep.)
 RUN wget --quiet https://github.com/krallin/tini/releases/download/${TINI_VER}/tini && \
     echo "${TINI_SHA} *tini" | sha256sum -c - && \
@@ -149,18 +156,8 @@ RUN wget --quiet https://github.com/krallin/tini/releases/download/${TINI_VER}/t
 USER ${USER}
 
 
-# Setup `biodocker` home directory
-RUN mkdir /home/${USER}/work     && \
-    mkdir /home/${USER}/.jupyter && \
-    mkdir /home/${USER}/.local   && \
-    echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/${USER}/.curlrc
-
-
-
-
 # Install conda as `biodocker`
-RUN cd /tmp && \
-    mkdir -p ${CONDA_DIR} && \
+RUN mkdir -p ${CONDA_DIR} && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VER}-Linux-x86_64.sh && \
     echo "${MINICONDA_SHA} *Miniconda${MINICONDA_VER_G}-${MINICONDA_VER}-Linux-x86_64.sh" | sha256sum -c - && \
     /bin/bash Miniconda${MINICONDA_VER_G}-${MINICONDA_VER}-Linux-x86_64.sh -f -b -p ${CONDA_DIR} && \
@@ -183,15 +180,14 @@ RUN pip install "jupyterhub==${JUPYTERHUB_VER}"
 
 
 
-
-
-
 # # # # PyMol
-WORKDIR ${DL_DIR}
-
 RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL_VERSION_G}/pymol-v${PYMOL_VERSION}.tar.bz2 && \
     tar jxf pymol-v${PYMOL_VERSION}.tar.bz2 && \
-    rm pymol-v*
+    pwd && \
+    ls && \
+    rm pymol-v* && \
+    pwd && \
+    ls
 
 WORKDIR pymol
 
