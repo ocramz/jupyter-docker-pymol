@@ -28,10 +28,12 @@ ENV PYMOL_SHA 6181024fe3f0107f57fcd02914b96747881272ade4fd0f3419784c972debce66
 
 ENV TINI_VER v0.9.0
 ENV TINI_SHA faafbfb5b079303691a939a747d7f60591f2143164093727e870b289a44d9872
+
 ENV MINICONDA_VER_G 3
 ENV MINICONDA_VER 3.19.0
 ENV MINICONDA_VER_BUMP 3.19.1
 ENV MINICONDA_SHA 9ea57c0fdf481acf89d816184f969b04bc44dea27b258c4e86b1e3a25ff26aa0
+
 ENV NOTEBOOK_VER 4.2
 ENV JUPYTERHUB_VER 0.5
 
@@ -39,7 +41,6 @@ ENV USER biodocker
 
 ENV IPYNBS_DIR /home/${USER}/notebooks/iPyMol
 ENV DL_DIR /home/${USER}/tmp
-ENV TMP_DIR /tmp
 
 ENV CONDA_DIR /opt/conda
 ENV PATH ${CONDA_DIR}/bin:${PATH}
@@ -219,7 +220,7 @@ COPY jupyter-minimal-notebook/jupyter_notebook_config.py /home/${USER}/.jupyter/
 
 RUN chown -R ${USER}:users /home/${USER}/.jupyter
 
-
+RUN rm -rf ${DL_DIR}
 
 
 # Switch back to user to avoid accidental container runs as root
