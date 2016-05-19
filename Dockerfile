@@ -71,8 +71,7 @@ ADD ipymol/ ${IPYNBS_DIR}
 # # # update APT index and install some build tools
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    pkg-config \
-    locales \
+    pkg-config locales &&\
     \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen && \
