@@ -191,7 +191,7 @@ RUN wget --no-verbose https://sourceforge.net/projects/pymol/files/pymol/${PYMOL
 
 # # # # iPyMol + dependencies
 # TODO: FIXATE VERSION
-RUN pip install --upgrade pip3 && pip3 install git+https://github.com/ocramz/ipymol.git@python3
+RUN pip3 install --upgrade pip3 && pip3 install git+https://github.com/ocramz/ipymol.git@python3
 
 
 ## check installation
