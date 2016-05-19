@@ -68,7 +68,7 @@ ADD ipymol/ ${IPYNBS_DIR}
 
 
 # # # update APT index and install some build tools
-RUN apt-get update &&
+RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     sudo make build-essential\
     git vim jed emacs \
