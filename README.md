@@ -96,4 +96,6 @@ the PyMol project contributors , pymol.org
 
 the Jupyter and iPython project contributors , jupyter.org
 
-Carlos Hernandez (ipymol) , https://github.com/cxhernandez/ipymol
+Carlos Hernandez for `ipymol` , https://github.com/cxhernandez/ipymol
+
+Saulo Alves (https://github.com/sauloal) for helping merge with the BioDocker project (https://github.com/BioDocker)
