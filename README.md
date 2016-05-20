@@ -1,9 +1,7 @@
 # jupyter-docker-pymol
 
 Travis CI:
-`main` branch : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=master)](https://travis-ci.org/ocramz/jupyter-docker-pymol)
-
-`biodocker` branch : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=biodocker)](https://travis-ci.org/ocramz/jupyter-docker-pymol)
+`main` branch : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=master)](https://travis-ci.org/ocramz/jupyter-docker-pymol), `biodocker` branch : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=biodocker)](https://travis-ci.org/ocramz/jupyter-docker-pymol)
 
 Container-based installation of `PyMol`, with interaction through the browser via `ipymol` and Jupyter notebook (based on `jupyter/notebook`). A convenient and portable way to render pretty pictures of molecules, and much more.
 
