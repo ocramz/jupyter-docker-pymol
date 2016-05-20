@@ -1,7 +1,7 @@
 # jupyter-docker-pymol
 
 Travis CI:
-`main` branch : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=master)](https://travis-ci.org/ocramz/jupyter-docker-pymol), `biodocker` branch : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=biodocker)](https://travis-ci.org/ocramz/jupyter-docker-pymol)
+`main` : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=master)](https://travis-ci.org/ocramz/jupyter-docker-pymol), `biodocker` : [![Build Status](https://travis-ci.org/ocramz/jupyter-docker-pymol.svg?branch=biodocker)](https://travis-ci.org/ocramz/jupyter-docker-pymol)
 
 Container-based installation of `PyMol`, with interaction through the browser via `ipymol` and Jupyter notebook (based on `jupyter/notebook`). A convenient and portable way to render pretty pictures of molecules, and much more.
 
@@ -84,7 +84,7 @@ This project uses PyMol 1.8.2.0 and Python 3
 
 At present, this setup is intended for local use only (i.e. the Docker image, along with all the computational payload i.e. PyMol and the Python interpreter, is running on the same host that runs the browser). 
 
-There is *NO* authentication to the notebooks and the Jupyter user is `root`.
+There is *NO* authentication to the notebooks.
 
 
 
