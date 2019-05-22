@@ -7,6 +7,10 @@ Container-based installation of `PyMol`, with interaction through the browser vi
 The installation also contains `numpy` and `scipy` among other things, so it can be used for a variety of scientific Python tasks.
 
 
+## NOTE TO POTENTIAL USERS ##
+
+May 22, 2019. Hi, thanks for checking out this project. If you are interested in using this, you should look at github.com/BioContainers instead, which is a giant repository of dockerized bioinformatics software. I contributed `jupyter-docker-pymol` to that, and it now lives at this address: https://github.com/BioContainers/containers/tree/master/pymol-jupiter . I am not planning to touch this repository (github.com/ocramz/jupyter-docker-pymol) anymore. Thanks and good luck!
+
 
 ![](https://github.com/ocramz/jupyter-docker-pymol/blob/master/fig/png0.png)
 
@@ -97,4 +101,4 @@ the Jupyter and iPython project contributors , jupyter.org
 
 Carlos Hernandez for `ipymol` , https://github.com/cxhernandez/ipymol
 
-Saulo Alves (https://github.com/sauloal) for helping merge with the BioDocker project (https://github.com/BioDocker)
+Saulo Alves (https://github.com/sauloal) for helping merge with the BioDocker project (https://github.com/BioDocker , now https://github.com/BioContainers)
